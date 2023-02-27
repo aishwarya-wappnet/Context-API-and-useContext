@@ -1,5 +1,5 @@
 import React from 'react';
-import { FirstName, LastName } from './App';
+import { FirstName, LastName, Email } from './App';
 
 const CompoC = () => {
     return (
@@ -10,7 +10,17 @@ const CompoC = () => {
                 <LastName.Consumer>
                     {(lname) => {
                         return (
-                            <h1>Name: { fname } { lname }</h1>
+                           <Email.Consumer>
+                            {(email) => {
+                                return (
+                                    <>
+                                <h1>Using Context API: </h1>
+                                 <h2>Name: {fname} {lname}</h2>  
+                                 <h2>Email: {email}</h2>
+                                </>
+                                )
+                            }}
+                            </Email.Consumer>
                         )
                     }}
                 </LastName.Consumer>
